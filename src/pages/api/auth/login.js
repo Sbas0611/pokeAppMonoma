@@ -15,7 +15,8 @@ export default function loginHandler(req, res) {
         email,
         username: user.username,
         name: user.name,
-        lastName: user.lastName
+        lastName: user.lastName,
+        image: user.image
       },
       "secret"
     );

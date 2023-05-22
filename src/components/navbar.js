@@ -1,9 +1,8 @@
 import axios from 'axios';
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-import Image from 'next/image';
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 
 const navigation = [
@@ -14,10 +13,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBar({ req }) {
+export default function NavBar() {
   const [showModal, setShowModal] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const router = useRouter();
+  
 
   useEffect(() => {
     fetch('/api/profile')
@@ -29,7 +29,7 @@ export default function NavBar({ req }) {
   if (!profileData) {
     return <p>Loading...</p>;
   }
-
+  
   const logout = async () => {
     try {
       await axios.get("/api/auth/logout");
@@ -97,15 +97,20 @@ export default function NavBar({ req }) {
                           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div className="sm:flex sm:items-start">
                               <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                <a onClick={() => setShowModal(false)}>x
-                                </a>
+                                <a className='text-fuchsia-950 cursor-pointer' onClick={() => setShowModal(false)}>X</a>
                                 <div>
                                   <div>
-                                    <h1>Profile</h1>
-                                    <p>Email: {profileData.email}</p>
-                                    <p>Name: {profileData.name}</p>
-                                    <p>Last Name: {profileData.lastName}</p>
-                                    <p>Username: {profileData.username}</p>
+                                    <h1 className='cursor-default' >Profile</h1>
+                                    <img
+                                    src={profileData.image}
+                                    width={100}
+                                    height={100}
+                                    alt="Picture of the author"
+                                    />
+                                    <p className='cursor-default' >Email: {profileData.email}</p>
+                                    <p className='cursor-default' >Name: {profileData.name}</p>
+                                    <p className='cursor-default' >Last Name: {profileData.lastName}</p>
+                                    <p className='cursor-default' >Username: {profileData.username}</p>
                                   </div>
                                 </div>
                               </div>
@@ -128,10 +133,8 @@ export default function NavBar({ req }) {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src=´12345!"4#43%%-{profileData.image}´
+                        src= {profileData.image}
                         alt="User Profile"
-                        width={64}
-        height={64}
                       />
                     </Menu.Button>
                   </div>

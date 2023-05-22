@@ -19,6 +19,6 @@ export default function profileHandler(req, res) {
 
     const { email, name, lastName, username, image } = decodedToken;
 
-    return res.status(200).json({ email, name, lastName, username });
+    return res.status(200).json({ email, name, lastName, username, image });
   });
 }

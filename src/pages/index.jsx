@@ -53,7 +53,7 @@ export async function getServerSideProps({ query }) {
 
   try {
     const response = await axios.get(`${BASE_URL}/pokemon`, {
-      params: { limit: 200 },
+      params: { limit: 100 },
     });
 
     const pokemonList = await Promise.all(
