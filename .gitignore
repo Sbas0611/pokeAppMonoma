@@ -40,3 +40,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+#Postman 
+.Postman-Agent-win64-0.4.15-Setup.exe
+.Postman-win64-Setup.exe

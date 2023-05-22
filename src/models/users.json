@@ -5,8 +5,8 @@
       "name": "John",
       "lastName": "Smith",
       "username": "usuario123",
-      "password": "contrasena123",
-      "email": "usuario123@example.com",
+      "password": "admin",
+      "email": "admin@example.com",
       "role": "user"
     }
 ]
